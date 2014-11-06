@@ -5,14 +5,6 @@
 from .config import STOPWORDS
 import string, os, re, math
 
-def extract_summary(data):
-    """Extract summary from data.
-    :param data: Text to process.
-    :returns: Summary string.
-    """
-    # TODO.
-    return
-
 def extract_keywords(data, **kwargs):
     """Extract keywords from data.
     :param **kwargs: p - Keyword tolerance, defaults to 0.1.
@@ -47,7 +39,6 @@ def extract_keywords(data, **kwargs):
     
     # 4. Get most frequent words compared relatively.
     most_frequent_words = most_frequent(word_freq, words, p, step, desired_words)
-    
     return [item for item in most_frequent_words.keys()]
 
 def make_word_list(data):
@@ -126,3 +117,11 @@ def most_frequent(word_freq, words, p, step, desired_words):
             return most_frequent(word_freq, words, p-step, step, desired_words)
         except RuntimeError: return most_frequent_words # Maximum recursion depth exceeded.
     return most_frequent_words
+
+def extract_summary(data):
+    """Extract summary from data.
+    :param data: Text to process.
+    :returns: Summary string.
+    """
+    # TODO.
+    return
