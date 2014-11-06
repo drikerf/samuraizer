@@ -126,9 +126,3 @@ def most_frequent(word_freq, words, p, step, desired_words):
             return most_frequent(word_freq, words, p-step, step, desired_words)
         except RuntimeError: return most_frequent_words # Maximum recursion depth exceeded.
     return most_frequent_words
-
-def main():
-    """Main."""
-    s = os.path.join(os.path.dirname(__file__), 'test/testdata/pg11.txt')
-    d = open(s, "r").read()
-    print(extract_keywords(d))
